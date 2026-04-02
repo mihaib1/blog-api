@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  createdOn    DateTime  @default(now())
+  modifiedOn   DateTime  @default(now())
+  email        String    @unique
+  username     String    @unique
+  password     String
+  displayName  String?
+  isAuthorized Boolean   @default(true)
+  role         Role      @default(USER)
+  posts        Post[]
+  comments     Comment[]
+}
+
+model Post {
+  id              Int       @id @default(autoincrement())
+  createdOn       DateTime  @default(now())
+  modifiedOn      DateTime  @default(now())
+  user            User      @relation(fields: [createdByUserId], references: [id])
+  createdByUserId Int
+  title           String
+  text            String    @db.VarChar(7000) // hard limit of 7000 characters for post text.
+  published       Boolean   @default(true)
+  comments        Comment[]
+}
+
+model Comment {
+  id              Int      @id @default(autoincrement())
+  createdOn       DateTime @default(now())
+  modifiedOn      DateTime @default(now())
+  user            User     @relation(fields: [createdByUserId], references: [id])
+  createdByUserId Int
+  comment         String   @db.VarChar(250)
+  approved        Boolean // we can add a rule so that if a user is older than 1 month, the approved field is true ELSE it is false
+  post            Post     @relation(fields: [postId], references: [id])
+  postId          Int
+}
+
+enum Role {
+  USER
+  ADMIN
+  EDITOR
+}
