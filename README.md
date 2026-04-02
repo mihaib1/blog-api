@@ -5,7 +5,6 @@ A modern, full-stack blog application built with **Node.js + React** featuring u
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Node Version](https://img.shields.io/badge/node-18%2B-brightgreen)
 ![React Version](https://img.shields.io/badge/react-19-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
@@ -34,7 +33,6 @@ A modern, full-stack blog application built with **Node.js + React** featuring u
 - Password hashing with bcryptjs
 - JWT authentication
 - Input validation and sanitization
-- CORS protection
 - Error handling and logging
 
 ---
@@ -55,7 +53,6 @@ A modern, full-stack blog application built with **Node.js + React** featuring u
 - **Vite** - Build tool
 - **Material-UI (MUI)** - Component library
 - **React Router v7** - Client-side routing
-- **TailwindCSS** - Utility-first CSS (optional)
 
 ---
 
@@ -75,7 +72,7 @@ blog-api/
 │   ├── package.json
 │   ├── .env                    ← Environment variables
 │   ├── jest.config.js
-│   └── README.md              ← Backend setup guide
+│   └── README.md              ← Backend setup guide (not done yet)
 │
 ├── front-end/                  ← React application
 │   ├── src/
@@ -91,12 +88,7 @@ blog-api/
 │   ├── package.json
 │   ├── vite.config.js
 │   ├── .env.local             ← Environment variables
-│   └── README.md              ← Frontend setup guide
-│
-├── docs/                       ← Documentation
-│   ├── API.md                 ← API endpoints
-│   ├── SETUP.md               ← Detailed setup
-│   └── DEPLOYMENT.md          ← Deployment guide
+│   └── README.md              ← Frontend setup guide (not done yet)
 │
 ├── .gitignore
 └── README.md                  ← This file
@@ -158,18 +150,6 @@ Open your browser and navigate to:
 ```
 http://localhost:5173
 ```
-
----
-
-## 📖 Documentation
-
-For detailed setup and usage instructions, see:
-
-- **[Backend README](./back-end/README.md)** - Backend installation, testing, deployment
-- **[Frontend README](./front-end/README.md)** - Frontend setup, development, building
-- **[API Documentation](./docs/API.md)** - Complete API endpoints and usage
-- **[Deployment Guide](./docs/DEPLOYMENT.md)** - How to deploy to production
-
 ---
 
 ## 🔑 Default Environment Variables
@@ -456,16 +436,6 @@ Admins have access to a dashboard showing all users. They can manage permissions
 
 ### User Profiles
 Each user has a profile page showing their information and all their published posts in one convenient location.
-
----
-
-## 🎉 You're All Set!
-
-Your Blog API application is ready to use. Follow the Quick Start section above to get up and running in minutes!
-
-**Questions?** Check the README files in the `back-end/` and `front-end/` directories for more detailed instructions.
-
-**Happy coding!** 🚀
 
 ---
 
